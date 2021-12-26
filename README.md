@@ -1,11 +1,26 @@
-# line-drawer
+# Line-drawer
 
-interia scroll bug fixed for iOS only
+This is Project 4 of Experimental JavaScript with SuperHi. We dive into 3D in the browser and use Three.js to add cameras, scenes, geometries, materials and meshes to the project.
 
-touch screen only works in iOS
+The live site can be found [HERE](https://sophnagle.github.io/line-drawer/)
 
-event.touches[0].clientX
-event.touches[0].clientY
+## Tech stack
+* HTML
+* CSS
+* JavaScript
 
-// so you could maybe do the following:
-event.pageX || event.touches[0].clientX
+## Bugs
+* interia scroll bug fixed for iOS only
+
+* Touch screen only works in iOS
+
+SuperHi suggests: 
+
+    event.touches[0].clientX
+    event.touches[0].clientY
+
+    // so you could maybe do the following:
+    event.pageX || event.touches[0].clientX
+
+
+However for me this is still an unresolved bug.
