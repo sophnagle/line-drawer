@@ -44,7 +44,7 @@ const animate = function () {
 animate()
 
 // lets make a function that creates a shape
-const createShape = function () {
+const createShape = function (x, y) {
     // using three.js cone geometry shape 
     const geometry = new THREE.ConeGeometry(10, 20, 32)
     const material = new THREE.MeshLambertMaterial({
@@ -54,7 +54,7 @@ const createShape = function () {
     })
     const shape = new THREE.Mesh(geometry, material)
     //position shape (x,y,z)
-    shape.position.set(100,100,200)
+    shape.position.set((window.innerWidth / 2) - x, (window.innerHeight / 2) - y, 400)
     // rotate shape
     shape.rotateX(0.5)
     shape.rotateZ(0.5)
@@ -65,4 +65,7 @@ const createShape = function () {
     scene.add(shape)
 }
 
-createShape()
+// lets do things on a click
+document.addEventListener("click", function (event) {
+    createShape(event.pageX, event.pageY)
+})
