@@ -120,3 +120,10 @@ document.addEventListener("touchstart", function (event) {
 document.addEventListener("touchend", function (event) {
     isMouseDown = false
 })
+
+
+window.addEventListener("resize", function () {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+})
