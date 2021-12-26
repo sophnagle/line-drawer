@@ -28,3 +28,20 @@ const animate = function () {
 }
 // start animation
 animate()
+
+// lets make a function that creates a shape
+const createShape = function () {
+    // using three.js cone geometry shape 
+    const geometry = new THREE.ConeGeometry(10, 20, 32)
+    const material = new THREE.MeshBasicMaterial({
+        color: 0xcccccc
+    })
+    const shape = new THREE.Mesh(geometry, material)
+    // rotate shape
+    shape.rotateX(0.5)
+    shape.rotateZ(0.5)
+    // add shape
+    scene.add(shape)
+}
+
+createShape()
