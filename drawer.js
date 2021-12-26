@@ -50,8 +50,17 @@ let hue = 0
 
 // lets make a function that creates a shape
 const createShape = function (x, y) {
-    // using three.js cone geometry shape 
-    const geometry = new THREE.ConeGeometry(10, 20, 32)
+    // hold all shapes 
+    const geometries = [
+        new THREE.ConeGeometry(10, 20, 30),
+        new THREE.BoxGeometry(15, 15, 15),
+        new THREE.TorusGeometry(5, 3, 16, 100),
+        new THREE.SphereGeometry(8, 32, 32)
+    ]
+
+    // pick random number
+    const randNumber = Math.floor(Math.random() * geometries.length)
+    const geometry = geometries[randNumber]
 
     const emissiveColor = new THREE.Color("hsl(" + hue + ", 100%, 50%)")
     const material = new THREE.MeshLambertMaterial({
