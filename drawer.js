@@ -65,7 +65,36 @@ const createShape = function (x, y) {
     scene.add(shape)
 }
 
-// lets do things on a click
-document.addEventListener("click", function (event) {
-    createShape(event.pageX, event.pageY)
+
+// lets do things on a draw
+let isMouseDown = false
+
+// mouse device 
+document.addEventListener("mousemove", function (event) {
+    if (isMouseDown) {
+        createShape(event.pageX, event.pageY)
+    }
+})
+
+document.addEventListener("mousedown", function (event) {
+    isMouseDown = true
+})
+
+document.addEventListener("mouseup", function (event) {
+    isMouseDown = false
+})
+
+// touch screen
+document.addEventListener("touchmove", function (event) {
+    if (isMouseDown) {
+        createShape(event.pageX, event.pageY)
+    }
+})
+
+document.addEventListener("touchstart", function (event) {
+    isMouseDown = true
+})
+
+document.addEventListener("touchend", function (event) {
+    isMouseDown = false
 })
