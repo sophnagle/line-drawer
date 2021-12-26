@@ -21,6 +21,11 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.z = -50
 camera.lookAt(scene.position)
 
+// lets add some lighting (directional light)
+const light = new THREE.DirectionalLight(0xffffff, 1)
+// add light
+scene.add(light)
+
 // lets add in an animation loop
 const animate = function () {
     renderer.render(scene, camera)
@@ -33,8 +38,10 @@ animate()
 const createShape = function () {
     // using three.js cone geometry shape 
     const geometry = new THREE.ConeGeometry(10, 20, 32)
-    const material = new THREE.MeshBasicMaterial({
-        color: 0xcccccc
+    const material = new THREE.MeshLambertMaterial({
+        color: 0xffffff,
+        // from three.js not affected by lights
+        emissive: 0xff0000
     })
     const shape = new THREE.Mesh(geometry, material)
     // rotate shape
