@@ -43,14 +43,21 @@ const animate = function () {
 // start animation
 animate()
 
+
+// lets hold a state of hue
+let hue = 0
+
+
 // lets make a function that creates a shape
 const createShape = function (x, y) {
     // using three.js cone geometry shape 
     const geometry = new THREE.ConeGeometry(10, 20, 32)
+
+    const emissiveColor = new THREE.Color("hsl(" + hue + ", 100%, 50%)")
     const material = new THREE.MeshLambertMaterial({
         color: 0xffffff,
         // from three.js not affected by lights
-        emissive: 0xff0000
+        emissive: emissiveColor
     })
     const shape = new THREE.Mesh(geometry, material)
     //position shape (x,y,z)
@@ -63,6 +70,10 @@ const createShape = function (x, y) {
     shapes.push(shape)
     // add shape
     scene.add(shape)
+
+    // update the hue for next time
+    hue = hue + 1
+
 }
 
 
