@@ -7,3 +7,12 @@ body {
     color: #333;
     
 }
+
+/* The below fixes the inertia scroll bug, however only for iOS */
+canvas {
+    vertical-align: bottom;
+}
+
+html, body {
+    position: fixed;
+}
