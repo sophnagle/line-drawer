@@ -26,10 +26,18 @@ const light = new THREE.DirectionalLight(0xffffff, 1)
 // add light
 scene.add(light)
 
+// lets hold some data about the shapes being added
+const shapes = []
+
 // lets add in an animation loop
 const animate = function () {
     renderer.render(scene, camera)
     requestAnimationFrame(animate)
+
+    // lets rotate the shapes each frame
+    shapes.forEach(shape => {
+        shape.rotateX(0.01)
+    })
 }
 // start animation
 animate()
@@ -47,6 +55,9 @@ const createShape = function () {
     // rotate shape
     shape.rotateX(0.5)
     shape.rotateZ(0.5)
+
+    //lets add it to the scene and list of shapes
+    shapes.push(shape)
     // add shape
     scene.add(shape)
 }
