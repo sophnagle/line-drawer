@@ -38,6 +38,8 @@ const animate = function () {
     // lets rotate the shapes each frame
     shapes.forEach(shape => {
         shape.rotateX(0.01)
+        // move shapes so its gives effect of moving through them
+        shape.position.setZ(shape.position.z - 1)
     })
 }
 // start animation
