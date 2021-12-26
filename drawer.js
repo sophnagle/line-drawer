@@ -23,6 +23,7 @@ camera.lookAt(scene.position)
 
 // lets add some lighting (directional light)
 const light = new THREE.DirectionalLight(0xffffff, 1)
+light.position.set(0,0, -1)
 // add light
 scene.add(light)
 
@@ -52,6 +53,8 @@ const createShape = function () {
         emissive: 0xff0000
     })
     const shape = new THREE.Mesh(geometry, material)
+    //position shape (x,y,z)
+    shape.position.set(100,100,200)
     // rotate shape
     shape.rotateX(0.5)
     shape.rotateZ(0.5)
