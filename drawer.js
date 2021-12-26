@@ -14,10 +14,10 @@ const section = document.querySelector("section")
 section.appendChild(renderer.domElement)
 
 // lets create a scene
-const scene = new.THREE.Scene()
+const scene = new THREE.Scene()
 
 // lets create a camera
-const camera = new.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000)
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000)
 camera.position.z = -50
 camera.lookAt(scene.position)
 
